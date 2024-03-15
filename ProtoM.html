@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración de Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('pre.png') fixed center/cover;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: rgba(255, 111, 97, 0.9);
+            color: #fff;
+            padding: 20px;
+            font-size: 2em;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1.5s ease-in-out;
+          max-width: 600px;
+            width: 90%;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+        }
+h2{
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+img {
+           max-width: 100%; 
+  height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            color: #777;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button.yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button.no {
+            background-color: #f44336;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #555;
+            transform: scale(1.1);
+        }
+#changeBackgroundBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+  
+  .move1{
+position: absolute;
+bottom: 20px; 
+right: 12px;
+}
+.move2{
+position: absolute;
+bottom: 20px;
+left: 19px;
+}
+.move3{
+position: absolute;
+top: 17px; 
+  right: 54px;
+}
+    </style>
+</head>
+<body>
+  
+ <audio autoplay>
+  <source src="Manana.mp3" type="audio/mp3"> 
+   Tu navegador no soporta el elemento de audio.
+ </audio>
+    <header>
+        <h1>Declaración de Amor</h1>
+    </header>
+    <section>
+        <p>Hola Maria,</p>
+        <p>Quiero expresarte lo especial que eres para mí y lo afortunado que me siento al haberte conocido.</p>
+        <p>Desde el momento en que empezamos a conversar, he sentido una conexión única y especial. Y quiero decirte que al ver tus ojos marrones observo como brillan como estrellas en una mina de oro, y si no me crees tengo un poema que describe perfectamente lo que siento al verlos:</p>
+        <p>"Me perdí en su mirada, es que el color de sus ojos me encantaban; no eran ni azules, ni verdes. Eran color café, café que quita el sueño, café que producen desvelos."</p>
+        <p>Y al hablar contigo hace que me enamore más con cada día que pasa.</p>
+        <p>Y es muy posible que lo que voy a decir le parezca una locura, si es así, me lo dice sin más, y no quiero andar con rodeos: pero creo que estoy enamorado de usted.</p>
+        <p>Y es por eso que  me encantaría tener la oportunidad de conocerte mejor y compartir más momentos juntos. y es por eso que te tengo que preguntar ¿Te gustaría salir conmigo?</p>
+      <img id="ri" src="https://pin.it/7FIQ19Q.jpg" width="100px"alt="">
+    </section>
+    <footer>
+        <h2>¡Con cariño,Brandon!</h2>
+        <button class="yes" onclick="showImage()">Sí</button>
+        <button id="btn1" class="no" onclick="alert('Quizás en otro momento. 😔')">No</button>
+      <button id="changeBackgroundBtn" onclick="changeBackground()">Cambiar Fondo</button>
+    </footer>
+  <script>
+  let btn = document.querySelector('#btn1');
+  
+  btn.addEventListener('mouseover', movimiento);
+  
+  function movimiento(){
+    if(btn.classList.contains('no')){
+      btn.classList.replace('no', 'move1');
+    } else if(btn.classList.contains('move1')){
+      btn.classList.replace('move1', 'move2');
+    }else if(btn.classList.contains('move2')){
+      btn.classList.replace('move2', 'move3');
+    }else if(btn.classList.contains('move3')){
+      btn.classList.replace('move3', 'no');
+    }
+  }
+  
+  function changeBackground() {
+          
+            var newBackground = prompt('Por favor, ingresa el enlace de la nueva imagen de fondo:');
+
+        if (newBackground) {
+            document.body.style.background = 'url(' + newBackground + ') fixed center/cover';
+        }
+    }
+  
+  function showImage() {
+           window.open('Flow.html', '_blank');
+        }
+  
+  </script>
+</body>
+</html>
